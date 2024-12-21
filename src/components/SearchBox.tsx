@@ -9,11 +9,11 @@ export default function SearchBox({}: Props) {
       <input
         type="text"
         placeholder="Search for a city"
-        className="px-4 py-2 w-[230px] border border-gray-300 rounded-1-md focus:outline-none focus:border-blue-500 h-full"
+        className="px-4 py-2 w-[230px] border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500 h-full"
       />
       <button
         type="submit"
-        className="absolute right-0 h-full px-4 bg-blue-500 text-white rounded-full"
+        className="px-4 py-[9px] bg-blue-500 text-white rounded-r-md focus:outline-none hover:bg-blue-600 h-full"
       >
         <IoSearch />
       </button>
