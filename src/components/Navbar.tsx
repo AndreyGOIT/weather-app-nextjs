@@ -18,7 +18,7 @@ export default function Navbar() {
       <MdOutlineLocationOn className=" text-2xl " />
       <p className="text-slate-900/80 text-sm">Finland</p>
       <div>
-        <SearchBox />
+        <SearchBox value={""} onChange={undefined} onSubmit={undefined} />
       </div>
       </section>
       </div>
