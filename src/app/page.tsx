@@ -1,5 +1,8 @@
+'use client'
+
 import Navbar from "@/components/Navbar";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 
 type WeatherResponse = {
@@ -61,11 +64,17 @@ type WeatherResponse = {
 export default function Home() {
   const { isLoading, error, data } = useQuery({
     queryKey: ['repoData'],
-    queryFn: async () =>
-      fetch('https://api.openweathermap.org/data/2.5/forecast?q=porvoo&units=metric&appid=9bf5dc62e49a8ed17a9243bb75f4b5fb&cnt=2').then((res) =>
-        res.json(),
-      ),
+    queryFn: 
+    async () => {
+      const {data} = await axios.get<WeatherResponse>('https://api.openweathermap.org/data/2.5/forecast?q=porvoo&units=metric&appid=9bf5dc62e49a8ed17a9243bb75f4b5fb&cnt=2')
+      return data
+    }
+    // async () =>
+    //   fetch('https://api.openweathermap.org/data/2.5/forecast?q=porvoo&units=metric&appid=9bf5dc62e49a8ed17a9243bb75f4b5fb&cnt=2').then((res) =>
+    //     res.json(),
+    //   ),
   })
+  console.log('data', data);
 
   if (isLoading) return 'Loading...'
 
